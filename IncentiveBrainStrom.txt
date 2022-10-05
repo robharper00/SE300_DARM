@@ -1,10 +1,16 @@
 Application Incentive System
   #A system is put into place to encouge users to stay active and use the program on a regular basis
-
+  - Gains points per throphy won, and per beating old score
+  - 
+  
 Rewards/ Badges and Throphies
 - Maintained caloric goal averge for X days
 - Took Medication with in alotted time frame
--
+- Woke up on time without hitting snooze
+- Beat steps score
+- Trophy gained for winning X amount of points
+- 
+
 Social System?
   #May not do
  
