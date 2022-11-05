@@ -63,9 +63,9 @@ class _MyAppState extends State<MyApp> {
                           padding: EdgeInsets.all(10),
                         ),
                         CircleAvatar(
-                          radius: 75,
+                          radius: 70,
                           child: Text(
-                            '95000',
+                            '1000',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 48,
@@ -74,11 +74,60 @@ class _MyAppState extends State<MyApp> {
                             ),
                           ),
                         ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              'Average Steps Daily: 1000\n Total Steps This Week: 7000',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
+              Container(
+                padding: EdgeInsets.all(10),
+                height: 200,
+                width: double.infinity,
+                color: Color.fromARGB(255, 40, 37, 36),
+                child: Column(
+                  children: [
+                    Text(
+                      'Count Your Calories!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Total Calories Consumed: 2000',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -86,47 +135,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-      // title: 'Healthy Habits',
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     backgroundColor: COLOR_MINT,
-      //     title: Text(
-      //       'Healthy Habits',
-      //       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-      //     ),
-      //   ),
-      //   body: Column(
-      //     children: [
-      //       Text(
-      //         "Welcome! Please select an option from the menu!",
-      //         style: TextStyle(fontSize: 28),
-      //         textAlign: TextAlign.center,
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () => print("Survey Loading..."),
-      //         child: Text('Take Survey'),
-      //         style: ButtonStyle(
-      //           backgroundColor: MaterialStateProperty.all(COLOR_MINT),
-      //           foregroundColor: MaterialStateProperty.all(Colors.black),
-      //         ),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () => print("Item 2 Loading..."),
-      //         child: Text('Item 2'),
-      //         style: ButtonStyle(
-      //           backgroundColor: MaterialStateProperty.all(COLOR_MINT),
-      //           foregroundColor: MaterialStateProperty.all(Colors.black),
-      //         ),
-      //       ),
-      //       ElevatedButton(
-      //         onPressed: () => print("Item 3 Loading..."),
-      //         child: Text('Item 3'),
-      //         style: ButtonStyle(
-      //           backgroundColor: MaterialStateProperty.all(COLOR_MINT),
-      //           foregroundColor: MaterialStateProperty.all(Colors.black),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-
