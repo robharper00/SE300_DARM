@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Container(
+                padding: EdgeInsets.all(10),
                 child: Text(
                   'Welcome to Healthy Habits! Please select an option below.',
                   textAlign: TextAlign.center,
@@ -38,7 +39,6 @@ class _MyAppState extends State<MyApp> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                padding: EdgeInsets.all(10),
               ),
               Container(
                 padding: EdgeInsets.all(10),
