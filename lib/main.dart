@@ -23,7 +23,10 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: Text(TITLE),
+          title: Text(
+            TITLE,
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -35,99 +38,92 @@ class _MyAppState extends State<MyApp> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
-                    color: Colors.white,
+                    color: Colors.green,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                height: 200,
-                width: double.infinity,
-                color: Color.fromARGB(255, 40, 37, 36),
-                child: Column(
-                  children: [
-                    Text(
-                      'Pedometer: Track Your Steps Here!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                        ),
-                        CircleAvatar(
-                          radius: 70,
-                          child: Text(
-                            '1000',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 48,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              'Average Steps Daily: 1000\n Total Steps This Week: 7000',
-                              textAlign: TextAlign.end,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+              Padding(
+                padding: EdgeInsets.all(5),
               ),
               Container(
-                padding: EdgeInsets.all(10),
-                height: 200,
                 width: double.infinity,
-                color: Color.fromARGB(255, 40, 37, 36),
-                child: Column(
-                  children: [
-                    Text(
-                      'Count Your Calories!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Total Calories Consumed: 2000',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                height: 150.0,
+                child: ElevatedButton(
+                  onPressed: (() =>
+                      print('test')), // until i implement the other screens
+                  child: Text(
+                    'PEDOMETER',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 40, 37, 36)),
+                    foregroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
                 ),
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              Container(
+                width: double.infinity,
+                height: 150.0,
+                child: ElevatedButton(
+                  onPressed: (() =>
+                      print('test')), // until i implement the other screens
+                  child: Text(
+                    'TRACK YOUR CALORIES',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 40, 37, 36)),
+                    foregroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              Container(
+                width: double.infinity,
+                height: 150.0,
+                child: ElevatedButton(
+                  onPressed: (() =>
+                      print('test')), // until i implement the other screens
+                  child: Text(
+                    'TRACK YOUR HEART RATE',
+                    style: TextStyle(fontSize: 28),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 40, 37, 36)),
+                    foregroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              Container(
+                width: double.infinity,
+                height: 150.0,
+                child: ElevatedButton(
+                  onPressed: (() =>
+                      print('test')), // until i implement the other screens
+                  child: Text(
+                    'USER SURVEY',
+                    style: TextStyle(fontSize: 28),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 40, 37, 36),
+                    ),
+                    foregroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
