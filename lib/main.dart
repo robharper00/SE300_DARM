@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'pedometer_screen.dart';
+import 'main_menu.dart';
+import 'calorie_counter_screen.dart';
+import 'heart_rate_screen.dart';
+import 'user_survey_screen.dart';
 
 const TITLE = 'Healthy Habits';
 void main() => runApp(MyApp());
@@ -20,114 +25,15 @@ class _MyAppState extends State<MyApp> {
         accentColor: Colors.white,
         canvasColor: Colors.black,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text(
-            TITLE,
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Text(
-                  'Welcome to Healthy Habits! Please select an option below.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.green,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Container(
-                width: double.infinity,
-                height: 150.0,
-                child: ElevatedButton(
-                  onPressed: (() =>
-                      print('test')), // until i implement the other screens
-                  child: Text(
-                    'PEDOMETER',
-                    style: TextStyle(fontSize: 30),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 40, 37, 36)),
-                    foregroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-              ),
-              Container(
-                width: double.infinity,
-                height: 150.0,
-                child: ElevatedButton(
-                  onPressed: (() =>
-                      print('test')), // until i implement the other screens
-                  child: Text(
-                    'TRACK YOUR CALORIES',
-                    style: TextStyle(fontSize: 30),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 40, 37, 36)),
-                    foregroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-              ),
-              Container(
-                width: double.infinity,
-                height: 150.0,
-                child: ElevatedButton(
-                  onPressed: (() =>
-                      print('test')), // until i implement the other screens
-                  child: Text(
-                    'TRACK YOUR HEART RATE',
-                    style: TextStyle(fontSize: 28),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 40, 37, 36)),
-                    foregroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-              ),
-              Container(
-                width: double.infinity,
-                height: 150.0,
-                child: ElevatedButton(
-                  onPressed: (() =>
-                      print('test')), // until i implement the other screens
-                  child: Text(
-                    'USER SURVEY',
-                    style: TextStyle(fontSize: 28),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 40, 37, 36),
-                    ),
-                    foregroundColor: MaterialStateProperty.all(Colors.green),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      //home: null
+      initialRoute: '/',
+      routes: {
+        '/': (ctx) => MainMenu(),
+        PedometerScreen.routeName: (ctx) => PedometerScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (ctx) => MainMenu());
+      },
     );
   }
 }
