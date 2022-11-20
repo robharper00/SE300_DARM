@@ -44,8 +44,12 @@ class _MainMenuState extends State<MainMenu> {
               width: double.infinity,
               height: 150.0,
               child: ElevatedButton(
-                onPressed: (() =>
-                    print('test')), // until i implement the other screens
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PedometerScreen()),
+                  );
+                },
                 child: Text(
                   'PEDOMETER',
                   style: TextStyle(fontSize: 30),

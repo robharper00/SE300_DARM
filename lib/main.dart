@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       title: TITLE,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        accentColor: Colors.white,
+        //accentColor: Colors.white,
         canvasColor: Colors.black,
       ),
       //home: null

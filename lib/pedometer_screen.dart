@@ -69,9 +69,14 @@ class _PedometerScreenState extends State<PedometerScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        //accentColor: Colors.white,
+        canvasColor: Colors.white,
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Healthy Habits Pedometer'),
+          title: const Text('Healthy Habits'),
         ),
         body: Center(
           child: Column(
