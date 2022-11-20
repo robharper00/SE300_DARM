@@ -83,7 +83,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.push(
+              Navigator.pop(
                 context,
                 MaterialPageRoute(builder: (context) => MainMenu()),
               );

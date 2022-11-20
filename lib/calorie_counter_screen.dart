@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'main_menu.dart';
+
+const TITLE = 'Calorie Counter';
 
 class CalorieCounterScreen extends StatefulWidget {
   const CalorieCounterScreen({super.key});
@@ -10,6 +13,25 @@ class CalorieCounterScreen extends StatefulWidget {
 class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => MainMenu()),
+            );
+          },
+        ),
+        backgroundColor: Colors.green,
+        title: Text(
+          TITLE,
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -40,7 +40,7 @@ class _HeartRateScreenState extends State<HeartRateScreen> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.push(
+            Navigator.pop(
               context,
               MaterialPageRoute(builder: (context) => MainMenu()),
             );
