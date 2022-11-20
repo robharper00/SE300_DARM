@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_habits/main_menu.dart';
 import 'dart:async';
 import 'package:pedometer/pedometer.dart';
 
@@ -72,11 +73,28 @@ class _PedometerScreenState extends State<PedometerScreen> {
       theme: ThemeData(
         primarySwatch: Colors.green,
         //accentColor: Colors.white,
-        canvasColor: Colors.white,
+        canvasColor: Colors.black, // change to white if ugly
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Healthy Habits'),
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MainMenu()),
+              );
+            },
+          ),
+          title: const Text(
+            'Healthy Habits',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
         ),
         body: Center(
           child: Column(
@@ -88,7 +106,8 @@ class _PedometerScreenState extends State<PedometerScreen> {
               ),
               Text(
                 _steps,
-                style: TextStyle(fontSize: 60),
+                style: TextStyle(
+                    fontSize: 60, color: Colors.white), // remove color if ugly
               ),
               Divider(
                 height: 100,
@@ -97,16 +116,17 @@ class _PedometerScreenState extends State<PedometerScreen> {
               ),
               Text(
                 'Pedestrian status:',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(
+                    fontSize: 30, color: Colors.white), // remove color if ugly
               ),
               Icon(
-                _status == 'walking'
-                    ? Icons.directions_walk
-                    : _status == 'stopped'
-                        ? Icons.accessibility_new
-                        : Icons.error,
-                size: 100,
-              ),
+                  _status == 'walking'
+                      ? Icons.directions_walk
+                      : _status == 'stopped'
+                          ? Icons.accessibility_new
+                          : Icons.error,
+                  size: 100,
+                  color: Colors.white), // remove color if ugly
               Center(
                 child: Text(
                   _status,
@@ -114,7 +134,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                       ? TextStyle(fontSize: 30)
                       : TextStyle(fontSize: 20, color: Colors.red),
                 ),
-              )
+              ),
             ],
           ),
         ),

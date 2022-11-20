@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   pedometer: ^3.0.0
   sqflite: ^2.2.0+3
+  heart_bpm: ^1.1.1+0
 
 dev_dependencies:
   flutter_test:

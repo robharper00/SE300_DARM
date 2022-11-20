@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pedometer_screen.dart';
+import 'heart_rate_screen.dart';
 
 const TITLE = 'Healthy Habits';
 
@@ -88,8 +89,12 @@ class _MainMenuState extends State<MainMenu> {
               width: double.infinity,
               height: 150.0,
               child: ElevatedButton(
-                onPressed: (() =>
-                    print('test')), // until i implement the other screens
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HeartRateScreen()),
+                  );
+                }, // until i implement the other screens
                 child: Text(
                   'TRACK YOUR HEART RATE',
                   style: TextStyle(fontSize: 28),
