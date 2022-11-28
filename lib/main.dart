@@ -19,11 +19,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: TITLE,
       theme: ThemeData(
         primarySwatch: Colors.green,
         //accentColor: Colors.white,
-        canvasColor: Colors.black,
+        canvasColor: Color.fromARGB(255, 40, 37, 36),
       ),
       //home: null
       initialRoute: '/',

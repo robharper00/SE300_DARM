@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pedometer_screen.dart';
 import 'heart_rate_screen.dart';
 import 'calorie_counter_screen.dart';
+import 'credits_screen.dart';
 
 const TITLE = 'Healthy Habits';
 
@@ -23,6 +24,20 @@ class _MainMenuState extends State<MainMenu> {
           TITLE,
           style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreditsScreen()),
+              );
+            },
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -122,7 +137,7 @@ class _MainMenuState extends State<MainMenu> {
                 onPressed: (() =>
                     print('test')), // until i implement the other screens
                 child: Text(
-                  'USER SURVEY',
+                  'USER PROFILE',
                   style: TextStyle(fontSize: 28),
                 ),
                 style: ButtonStyle(

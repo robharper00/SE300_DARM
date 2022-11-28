@@ -70,10 +70,11 @@ class _PedometerScreenState extends State<PedometerScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         //accentColor: Colors.white,
-        canvasColor: Colors.black, // change to white if ugly
+        canvasColor: Color.fromARGB(255, 40, 37, 36), // change to white if ugly
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -102,7 +103,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
             children: <Widget>[
               Text(
                 'Steps taken:',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: Colors.white),
               ),
               Text(
                 _steps,
