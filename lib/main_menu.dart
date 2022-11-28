@@ -135,7 +135,7 @@ class _MainMenuState extends State<MainMenu> {
               height: 150.0,
               child: ElevatedButton(
                 onPressed: (() =>
-                    print('test')), // until i implement the other screens
+                    print('test')), // until i implement the screen
                 child: Text(
                   'USER PROFILE',
                   style: TextStyle(fontSize: 28),

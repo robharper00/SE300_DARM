@@ -3,7 +3,7 @@ import 'pedometer_screen.dart';
 import 'main_menu.dart';
 import 'calorie_counter_screen.dart';
 import 'heart_rate_screen.dart';
-import 'user_survey_screen.dart';
+import 'user_profile_screen.dart';
 
 const TITLE = 'Healthy Habits';
 void main() => runApp(MyApp());
