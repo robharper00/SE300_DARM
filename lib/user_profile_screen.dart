@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/number_symbols_data.dart';
 import 'main_menu.dart';
+
+const BMI = 0;
+const WEIGHT = 0;
+const HEIGHT = 0;
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -9,6 +12,9 @@ class UserProfileScreen extends StatefulWidget {
   State<UserProfileScreen> createState() => _UserProfileScreenState();
 }
 
+/*double setBMI (double height, double weight){
+
+}*/
 class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
@@ -122,6 +128,82 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 Text(
                   'Please enter your age',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            TextFormField(
+              initialValue: null,
+              showCursor: false,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Text(
+                  'Please enter your height in inches.',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            TextFormField(
+              initialValue: null,
+              showCursor: false,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Text(
+                  'Please enter your weight in pounds',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(0),
+                ),
+                Text(
+                  'Your Current BMI',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(
+                  BMI.toString(),
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 20,
