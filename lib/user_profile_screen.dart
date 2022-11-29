@@ -73,6 +73,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   'Please enter your full name',
                   style: TextStyle(
                     color: Colors.green,
+                    fontSize: 20,
                   ),
                 ),
               ],
@@ -94,9 +95,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   padding: EdgeInsets.all(5),
                 ),
                 Text(
-                  'Please enter your preferred gender',
+                  'Please enter your gender',
                   style: TextStyle(
                     color: Colors.green,
+                    fontSize: 20,
                   ),
                 ),
               ],
@@ -122,6 +124,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   'Please enter your age',
                   style: TextStyle(
                     color: Colors.green,
+                    fontSize: 20,
                   ),
                 ),
               ],
