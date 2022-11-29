@@ -1,15 +1,134 @@
 import 'package:flutter/material.dart';
+import 'package:intl/number_symbols_data.dart';
+import 'main_menu.dart';
 
-class UserSurveyScreen extends StatefulWidget {
-  const UserSurveyScreen({super.key});
+class UserProfileScreen extends StatefulWidget {
+  const UserProfileScreen({super.key});
 
   @override
-  State<UserSurveyScreen> createState() => _UserSurveyScreenState();
+  State<UserProfileScreen> createState() => _UserProfileScreenState();
 }
 
-class _UserSurveyScreenState extends State<UserSurveyScreen> {
+class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text(
+          'Your Profile',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => MainMenu()),
+            );
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainMenu(),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.check,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            TextFormField(
+              initialValue: null,
+              showCursor: false,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Text(
+                  'Please enter your full name',
+                  style: TextStyle(
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            TextFormField(
+              initialValue: null,
+              showCursor: false,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Text(
+                  'Please enter your preferred gender',
+                  style: TextStyle(
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            TextFormField(
+              initialValue: null,
+              showCursor: false,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Text(
+                  'Please enter your age',
+                  style: TextStyle(
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
