@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
 
-String BMI = '';
-String WEIGHT = '';
-String HEIGHT = '';
-
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
 
@@ -13,29 +9,21 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
-  String setBMI(String HEIGHT, String WEIGHT) {
-    double x, y, z, doubleBMI;
-    print(WEIGHT);
-    print(HEIGHT);
-    x = double.parse(WEIGHT);
-    y = double.parse(HEIGHT);
-    z = x / y;
-    doubleBMI = z * 703;
-    BMI = doubleBMI.toString();
+  double height = 0;
+  double weight = 0;
+  double bmi = 0;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+
+  void calculateBMI(double height, double weight) {
+    double finalResult = (weight / (height * height)) * 703;
+    double result = finalResult;
     setState(() {
-      BMI = doubleBMI.toString();
+      bmi = result;
     });
-    return BMI;
-  }
-
-  String setWeight(String WEIGHT) {
-    print(WEIGHT);
-    return WEIGHT;
-  }
-
-  String setHeight(String HEIGHT) {
-    print(HEIGHT);
-    return HEIGHT;
   }
 
   @override
@@ -85,145 +73,120 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               padding: EdgeInsets.all(10),
             ),
             TextFormField(
-              initialValue: null,
+              controller: nameController,
+              decoration: InputDecoration(
+                hintText: 'Please enter your full name.',
+                hintStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                ),
+              ),
               showCursor: false,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.green,
+                fontSize: 20,
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(5),
-                ),
-                Text(
-                  'Please enter your full name',
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(25),
             ),
             TextFormField(
-              initialValue: null,
+              controller: genderController,
+              decoration: InputDecoration(
+                hintText: 'Please enter your gender.',
+                hintStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                ),
+              ),
               showCursor: false,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.green,
+                fontSize: 20,
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(5),
-                ),
-                Text(
-                  'Please enter your gender',
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(25),
             ),
             TextFormField(
-              initialValue: null,
+              controller: ageController,
+              decoration: InputDecoration(
+                hintText: 'Please enter your age.',
+                hintStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                ),
+              ),
               showCursor: false,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.green,
+                fontSize: 20,
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(5),
-                ),
-                Text(
-                  'Please enter your age',
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(25),
             ),
             TextFormField(
-              initialValue: null,
+              controller: heightController,
+              decoration: InputDecoration(
+                hintText: 'Please enter your height in inches.',
+                hintStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                ),
+              ),
               showCursor: false,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
-              onFieldSubmitted: (value) => {
-                setHeight(HEIGHT),
-                setBMI(HEIGHT, WEIGHT),
+              onFieldSubmitted: (value) {
+                setState(() {
+                  height = double.parse(heightController.value.text);
+                  print(height);
+                });
               },
               style: TextStyle(
                 color: Colors.green,
+                fontSize: 20,
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(5),
-                ),
-                Text(
-                  'Please enter your height in inches.',
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(25),
             ),
             TextFormField(
-              initialValue: null,
+              controller: weightController,
+              decoration: InputDecoration(
+                hintText: 'Please enter your weight in pounds.',
+                hintStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                ),
+              ),
               showCursor: false,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
-              onFieldSubmitted: (value) => {
-                setWeight(WEIGHT),
-                setBMI(HEIGHT, WEIGHT),
+              onFieldSubmitted: (value) {
+                setState(() {
+                  print(weight);
+                  weight = double.parse(weightController.value.text);
+                  calculateBMI(height, weight);
+                });
               },
               style: TextStyle(
                 color: Colors.green,
+                fontSize: 20,
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(25),
             ),
             Column(
               children: [
                 Padding(
                   padding: EdgeInsets.all(5),
-                ),
-                Text(
-                  'Please enter your weight in pounds',
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(0),
                 ),
                 Text(
                   'Your Current BMI',
@@ -233,7 +196,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
                 Text(
-                  '0.0',
+                  bmi.toStringAsFixed(2),
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 20,
