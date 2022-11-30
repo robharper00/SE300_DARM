@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
 
-const BMI = 0;
-const WEIGHT = 0;
-const HEIGHT = 0;
+String BMI = '';
+String WEIGHT = '';
+String HEIGHT = '';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -12,10 +12,32 @@ class UserProfileScreen extends StatefulWidget {
   State<UserProfileScreen> createState() => _UserProfileScreenState();
 }
 
-/*double setBMI (double height, double weight){
-
-}*/
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  String setBMI(String HEIGHT, String WEIGHT) {
+    double x, y, z, doubleBMI;
+    print(WEIGHT);
+    print(HEIGHT);
+    x = double.parse(WEIGHT);
+    y = double.parse(HEIGHT);
+    z = x / y;
+    doubleBMI = z * 703;
+    BMI = doubleBMI.toString();
+    setState(() {
+      BMI = doubleBMI.toString();
+    });
+    return BMI;
+  }
+
+  String setWeight(String WEIGHT) {
+    print(WEIGHT);
+    return WEIGHT;
+  }
+
+  String setHeight(String HEIGHT) {
+    print(HEIGHT);
+    return HEIGHT;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,6 +165,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               showCursor: false,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
+              onFieldSubmitted: (value) => {
+                setHeight(HEIGHT),
+                setBMI(HEIGHT, WEIGHT),
+              },
               style: TextStyle(
                 color: Colors.green,
               ),
@@ -169,6 +195,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               showCursor: false,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
+              onFieldSubmitted: (value) => {
+                setWeight(WEIGHT),
+                setBMI(HEIGHT, WEIGHT),
+              },
               style: TextStyle(
                 color: Colors.green,
               ),
@@ -203,7 +233,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
                 Text(
-                  BMI.toString(),
+                  '0.0',
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 20,
