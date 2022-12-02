@@ -4,6 +4,7 @@ import 'pedometer_screen.dart';
 import 'heart_rate_screen.dart';
 import 'calorie_counter_screen.dart';
 import 'credits_screen.dart';
+import 'notifications_screen.dart';
 
 const TITLE = 'Healthy Habits';
 
@@ -27,6 +28,18 @@ class _MainMenuState extends State<MainMenu> {
         ),
         actions: [
           IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationsScreen()),
+              );
+            },
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.black,
+            ),
+          ),
+          IconButton(
             icon: Icon(
               Icons.person,
               color: Colors.black,
@@ -37,7 +50,7 @@ class _MainMenuState extends State<MainMenu> {
                 MaterialPageRoute(builder: (context) => CreditsScreen()),
               );
             },
-          )
+          ),
         ],
       ),
       body: SingleChildScrollView(

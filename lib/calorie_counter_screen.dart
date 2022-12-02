@@ -16,14 +16,17 @@ List<String> mealCalories = [
   '731 calories',
   '257 calories',
 ];
+
 List<String> snacks = [
   'Beef Jerky',
   'Apple Pie',
 ];
+
 List<String> snackCalories = [
   '82 calories',
   '296 calories',
 ];
+
 final textController = TextEditingController();
 int mealIndex = 0;
 IconData MealIcon = Icons.food_bank;
@@ -64,14 +67,29 @@ class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
             indicatorColor: Colors.white,
             indicatorWeight: 5,
             tabs: [
-              Tab(icon: Icon(Icons.today), text: 'Today'),
-              Tab(icon: Icon(Icons.history), text: 'History'),
-              Tab(icon: Icon(Icons.food_bank), text: 'Meals'),
-              Tab(icon: Icon(Icons.apple), text: 'Snacks'),
+              Tab(
+                icon: Icon(Icons.today),
+                text: 'Today',
+              ),
+              Tab(
+                icon: Icon(Icons.history),
+                text: 'History',
+              ),
+              Tab(
+                icon: Icon(Icons.food_bank),
+                text: 'Meals',
+              ),
+              Tab(
+                icon: Icon(Icons.apple),
+                text: 'Snacks',
+              ),
             ],
           ),
           backgroundColor: Colors.green,
-          title: Text(TITLE, style: TextStyle(color: Colors.black)),
+          title: Text(
+            TITLE,
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: TabBarView(
           children: [

@@ -22,6 +22,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     double finalResult = (weight / (height * height)) * 703;
     double result = finalResult;
     setState(() {
+      print(result);
       bmi = result;
     });
   }
