@@ -6,6 +6,7 @@ const TITLE = 'Calories';
 
 double calories = 0;
 double newCalories = 0;
+double totalCalories = 0;
 TextEditingController calorieController = TextEditingController();
 
 class CalorieCounterScreen extends StatefulWidget {
@@ -17,12 +18,13 @@ class CalorieCounterScreen extends StatefulWidget {
 
 class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
   void updateCalories(double calories, double newCalories) {
-    double temp = calories + newCalories;
-    print(temp);
-    setState(() {
-      calories = temp;
+    calories = totalCalories;
+    totalCalories = calories + newCalories;
+    setState() {
+      print(totalCalories);
+      totalCalories;
       print(calories);
-    });
+    }
   }
 
   @override
@@ -71,6 +73,7 @@ class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
         ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             Column(
@@ -95,7 +98,7 @@ class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
                   width: double.infinity,
                   height: 75,
                   child: Text(
-                    calories.toString(),
+                    totalCalories.toString(),
                     style: TextStyle(
                       fontSize: 48,
                       color: Colors.green,
@@ -118,8 +121,10 @@ class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
                   keyboardType: TextInputType.number,
                   showCursor: false,
                   onFieldSubmitted: (value) {
-                    newCalories = double.parse(value);
-                    print(newCalories);
+                    setState(() {
+                      newCalories = double.parse(calorieController.value.text);
+                      print(newCalories);
+                    });
                   },
                   style: TextStyle(
                     color: Colors.green,
@@ -137,8 +142,8 @@ class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        updateCalories(newCalories, calories);
-                        calorieController.value.text == '';
+                        updateCalories(calories, newCalories);
+                        calories;
                       });
                     },
                     child: Text(

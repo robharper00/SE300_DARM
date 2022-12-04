@@ -3,16 +3,36 @@ import 'package:healthy_habits/calorie_counter_screen.dart';
 
 List<String> meals = [
   'Baby Back Ribs',
-  'Beef',
-  'Chicken',
-  'Pork Chops',
+  'Bacon and Eggs',
+  'Baked Beans',
+  'Baked Chicken',
+  'BBQ Ribs',
+  'Beef Stew',
+  'Biryani',
+  'Black Pudding',
+  'Black Rice',
+  'BLT',
+  'Brown Rice',
+  'Burrito',
+  'Butter Chicken',
+  'California Roll',
 ];
 
 List<String> mealCalories = [
   '360 calories',
-  '407 calories',
-  '731 calories',
-  '257 calories',
+  '539 calories',
+  '244 calories',
+  '282 calories',
+  '360 calories',
+  '186 calories',
+  '484 calories',
+  '101 calories',
+  '323 calories',
+  '593 calories',
+  '670 calories',
+  '326 calories',
+  '490 calories',
+  '33 calories',
 ];
 
 List<String> snacks = [
