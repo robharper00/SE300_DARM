@@ -1,35 +1,12 @@
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
+import 'meals_database_screen.dart';
 
 const TITLE = 'Calories';
 
-List<String> meals = [
-  'Baby Back Ribs',
-  'Beef',
-  'Chicken',
-  'Pork Chops',
-];
-
-List<String> mealCalories = [
-  '360 calories',
-  '407 calories',
-  '731 calories',
-  '257 calories',
-];
-
-List<String> snacks = [
-  'Beef Jerky',
-  'Apple Pie',
-];
-
-List<String> snackCalories = [
-  '82 calories',
-  '296 calories',
-];
-
-final textController = TextEditingController();
-int mealIndex = 0;
-IconData MealIcon = Icons.food_bank;
+double calories = 0;
+double newCalories = 0;
+TextEditingController calorieController = TextEditingController();
 
 class CalorieCounterScreen extends StatefulWidget {
   const CalorieCounterScreen({super.key});
@@ -39,133 +16,145 @@ class CalorieCounterScreen extends StatefulWidget {
 }
 
 class _CalorieCounterScreenState extends State<CalorieCounterScreen> {
+  void updateCalories(double calories, double newCalories) {
+    double temp = calories + newCalories;
+    print(temp);
+    setState(() {
+      calories = temp;
+      print(calories);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(
-                context,
-                MaterialPageRoute(builder: (context) => MainMenu()),
-              );
-            },
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.black,
-              ),
-              onPressed: null,
-            ),
-          ],
-          bottom: TabBar(
-            indicatorColor: Colors.white,
-            indicatorWeight: 5,
-            tabs: [
-              Tab(
-                icon: Icon(Icons.today),
-                text: 'Today',
-              ),
-              Tab(
-                icon: Icon(Icons.history),
-                text: 'History',
-              ),
-              Tab(
-                icon: Icon(Icons.food_bank),
-                text: 'Meals',
-              ),
-              Tab(
-                icon: Icon(Icons.apple),
-                text: 'Snacks',
-              ),
-            ],
-          ),
-          backgroundColor: Colors.green,
-          title: Text(
-            TITLE,
-            style: TextStyle(color: Colors.black),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => MainMenu()),
+            );
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
         ),
-        body: TabBarView(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MealsDatabaseScreen(),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.food_bank,
+              color: Colors.black,
+            ),
+          ),
+          IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black,
+            ),
+          ),
+        ],
+        backgroundColor: Colors.green,
+        title: Text(
+          TITLE,
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            todayPage(),
-            buildPage('History'),
-            mealPage(),
-            snackPage(),
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                  color: Color.fromARGB(255, 40, 37, 36),
+                  width: double.infinity,
+                  height: 50,
+                  child: Text(
+                    'Total Calories Today',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  color: Color.fromARGB(255, 40, 37, 36),
+                  width: double.infinity,
+                  height: 75,
+                  child: Text(
+                    calories.toString(),
+                    style: TextStyle(
+                      fontSize: 48,
+                      color: Colors.green,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(50),
+                ),
+                TextFormField(
+                  controller: calorieController,
+                  decoration: InputDecoration(
+                    hintText: 'Please enter the # of calories in your meal.',
+                    hintStyle: TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                  showCursor: false,
+                  onFieldSubmitted: (value) {
+                    newCalories = double.parse(value);
+                    print(newCalories);
+                  },
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20),
+                ),
+                Container(
+                  color: Colors.green,
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        updateCalories(newCalories, calories);
+                        calorieController.value.text == '';
+                      });
+                    },
+                    child: Text(
+                      'Submit Calories',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-Widget buildPage(String text) => Center(
-      // Bootleg function to keep TabBar functionality working
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 28,
-          color: Colors.white,
-        ),
-      ),
-    );
-
-Widget todayPage() => Column(
-      children: [
-        Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.blueGrey, // test color to see actual container
-              //color: Color.fromARGB(255, 40, 37, 36), // color for when this is finished
-              width: double.infinity,
-              height: 100,
-              child: Text('Total Calories'),
-            ),
-          ],
-        ),
-      ],
-    );
-
-Widget mealPage() => ListView.builder(
-      itemCount: meals.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          color: Colors.blueGrey,
-          child: ListTile(
-            title: Text(
-              meals[index],
-              style: TextStyle(color: Colors.black, fontSize: 20),
-            ),
-            trailing: Text(
-              mealCalories[index],
-              style: TextStyle(color: Colors.black, fontSize: 20),
-            ),
-          ),
-        );
-      },
-    );
-
-Widget snackPage() => ListView.builder(
-      itemCount: snacks.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          color: Colors.blueGrey,
-          child: ListTile(
-            title: Text(
-              snacks[index],
-              style: TextStyle(color: Colors.black, fontSize: 20),
-            ),
-            trailing: Text(
-              snackCalories[index],
-              style: TextStyle(color: Colors.black, fontSize: 20),
-            ),
-          ),
-        );
-      },
-    );

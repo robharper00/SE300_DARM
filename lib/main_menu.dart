@@ -57,7 +57,7 @@ class _MainMenuState extends State<MainMenu> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(5),
               child: Text(
                 'Welcome to Healthy Habits! Please select an option below.',
                 textAlign: TextAlign.center,
@@ -69,7 +69,33 @@ class _MainMenuState extends State<MainMenu> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.all(10),
+            ),
+            Container(
+              width: double.infinity,
+              height: 150.0,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => UserProfileScreen()),
+                  );
+                },
+                child: Text(
+                  'USER PROFILE',
+                  style: TextStyle(fontSize: 28),
+                ),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Color.fromARGB(255, 40, 37, 36),
+                  ),
+                  foregroundColor: MaterialStateProperty.all(Colors.green),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
             ),
             Container(
               width: double.infinity,
@@ -137,32 +163,6 @@ class _MainMenuState extends State<MainMenu> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
                       Color.fromARGB(255, 40, 37, 36)),
-                  foregroundColor: MaterialStateProperty.all(Colors.green),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            Container(
-              width: double.infinity,
-              height: 150.0,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => UserProfileScreen()),
-                  );
-                },
-                child: Text(
-                  'USER PROFILE',
-                  style: TextStyle(fontSize: 28),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Color.fromARGB(255, 40, 37, 36),
-                  ),
                   foregroundColor: MaterialStateProperty.all(Colors.green),
                 ),
               ),

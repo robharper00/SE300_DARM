@@ -14,6 +14,8 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
+  TextEditingController notiController = TextEditingController();
+  String notiBody = '';
   void initState() {
     super.initState;
     Noti.initialize(flutterLocalNotificationsPlugin);
@@ -43,28 +45,85 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           },
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 50,
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                Noti.showBigTextNotification(
-                    title: 'Healthy Habits',
-                    body: "This is a test",
-                    fln: flutterLocalNotificationsPlugin);
-              },
-              child: Text(
-                'Notification',
-                style: TextStyle(
-                  color: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            Text(
+              'Please enter what you would like your reminder to be, and how long you would like to wait for the reminder.',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.green,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: EdgeInsets.all(50),
+            ),
+            TextFormField(
+              controller: notiController,
+              decoration: InputDecoration(
+                hintText: 'Enter reminder you want to receive.',
+                hintStyle: TextStyle(
                   fontSize: 20,
+                  color: Colors.green,
+                ),
+              ),
+              textAlign: TextAlign.center,
+              showCursor: false,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.green,
+              ),
+              onFieldSubmitted: (value) {
+                notiBody = value;
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Enter time until reminder in minutes.',
+                hintStyle: TextStyle(
+                  fontSize: 20,
+                  color: Colors.green,
+                ),
+              ),
+              textAlign: TextAlign.center,
+              showCursor: false,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.green,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
+            Container(
+              padding: EdgeInsets.all(5),
+              height: 50,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Noti.showBigTextNotification(
+                      title: 'Healthy Habits',
+                      body: notiBody,
+                      fln: flutterLocalNotificationsPlugin);
+                },
+                child: Text(
+                  'Submit Notification',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

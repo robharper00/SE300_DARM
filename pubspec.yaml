@@ -42,6 +42,7 @@ dependencies:
   heart_bpm: ^1.1.1+0
   intl: ^0.17.0
   flutter_local_notifications: ^12.0.4
+  timezone: ^0.9.0
 
 dev_dependencies:
   flutter_test:
